@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "LTHPasscodeViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,18 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    //    [LTHPasscodeViewController sharedUser].delegate = self;
+    [LTHPasscodeViewController useKeychain:YES];
+    if ([LTHPasscodeViewController doesPasscodeExist] &&
+        [LTHPasscodeViewController didPasscodeTimerEnd]) {
+        [[LTHPasscodeViewController sharedUser] showLockScreenWithAnimation:YES
+                                                                 withLogout:NO
+                                                             andLogoutTitle:nil];
+    }
+    else{
+        //[[LTHPasscodeViewController sharedUser] showLockScreenWithAnimation:YES withLogout:NO andLogoutTitle:@"第一次进入请输入密码"];
+    }
     return YES;
 }
 

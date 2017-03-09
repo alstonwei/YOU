@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,32 +12,21 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="fMk-lJ-o8Z">
-                    <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="fMk-lJ-o8Z" secondAttribute="height" multiplier="1:1" id="Ua2-iZ-bLP"/>
-                    </constraints>
-                </imageView>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="W21-9m-DU3">
-                    <rect key="frame" x="336" y="398" width="121" height="29"/>
-                    <segments>
-                        <segment title="First"/>
-                        <segment title="Second"/>
-                    </segments>
-                </segmentedControl>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="fMk-lJ-o8Z"/>
             </subviews>
-            <color key="backgroundColor" red="0.69019607843137254" green="0.50588235294117645" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="fMk-lJ-o8Z" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="TDj-Pb-Tmf"/>
-                <constraint firstItem="fMk-lJ-o8Z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="V8d-jj-QYW"/>
-                <constraint firstAttribute="trailing" secondItem="fMk-lJ-o8Z" secondAttribute="trailing" id="g4t-JO-0BO"/>
+                <constraint firstItem="fMk-lJ-o8Z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="W7P-P2-Kcv"/>
+                <constraint firstAttribute="trailing" secondItem="fMk-lJ-o8Z" secondAttribute="trailing" id="YmY-Pi-Yw3"/>
+                <constraint firstAttribute="bottom" secondItem="fMk-lJ-o8Z" secondAttribute="bottom" id="fXg-uv-YyF"/>
+                <constraint firstItem="fMk-lJ-o8Z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mxQ-lX-Gcv"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="327" y="277"/>
+            <point key="canvasLocation" x="-143" y="-32"/>
         </view>
     </objects>
     <resources>
-        <image name="logo" width="512" height="512"/>
+        <image name="1" width="273" height="462"/>
     </resources>
 </document>
