@@ -27,6 +27,7 @@
 #import <UIKit/UIKit.h>
 #import "CTAssetsPickerController.h"
 #import "CTAssetsPageViewController.h"
+#import "YUCollectionModel.h"
 
 
 @interface YUBasicViewController : UITableViewController
@@ -35,6 +36,6 @@
 @property (nonatomic, copy) NSArray *assets;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 @property (nonatomic, strong) PHImageRequestOptions *requestOptions;
+@property(nonatomic,strong)YUCollectionModel* collectionModel;
 
-@property (nonatomic, copy) NSString *folder;
 @end

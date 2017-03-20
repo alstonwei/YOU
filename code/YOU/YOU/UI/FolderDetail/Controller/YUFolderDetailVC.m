@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.title = self.collectionModel.name;
 }
 
 /*
@@ -51,7 +51,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             
             baseVC = [[YUBasicViewController alloc] init];
-            baseVC.folder = @"guochengyu";
+            baseVC.collectionModel = self.collectionModel;
             CTAssetsPickerController *picker = [[CTAssetsPickerController alloc] init];
             picker.delegate = baseVC;
             if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)

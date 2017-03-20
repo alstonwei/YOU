@@ -184,7 +184,7 @@ static PHImageManager *saveManager = nil;
                                               resultHandler:^(UIImage *image, NSDictionary *info){
                                                   //cell.imageView.image = image;
                                                   NSString* name = [NSString stringWithFormat:@"%zd.jpg",i];
-                                                  NSString* directory = [[FCFileManager pathForDocumentsDirectory] stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@/s/",self.folder]];
+                                                  NSString* directory = [[FCFileManager pathForDocumentsDirectory] stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@/s/",self.collectionModel.name]];
                                                   NSString* savePath = [directory stringByAppendingPathComponent:name];
                                                   NSLog(@"savePath:%@",savePath);
                                                   BOOL b =  [FCFileManager writeFileAtPath:savePath content:image];
@@ -200,7 +200,7 @@ static PHImageManager *saveManager = nil;
             [saveManager requestImageDataForAsset:asset options:options resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
                 
                 NSString* name = [NSString stringWithFormat:@"%zd.jpg",i];
-                NSString* directory = [[FCFileManager pathForDocumentsDirectory] stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@/",self.folder]];
+                NSString* directory = [[FCFileManager pathForDocumentsDirectory] stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@/",self.collectionModel.name]];
                 NSString* savePath = [directory stringByAppendingPathComponent:name];
                 NSLog(@"savePath:%@",savePath);
                 BOOL b =  [FCFileManager writeFileAtPath:savePath content:imageData];

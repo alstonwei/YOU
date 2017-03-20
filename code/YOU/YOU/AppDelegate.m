@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LTHPasscodeViewController.h"
+#import "YUDBTool.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [[YUDBTool sharedYUDBTool] createTable];
+//    YUCollectionModel* m = [YUCollectionModel collectionModelWithName:@"cook" pwd:@"1234"];
+//    m.cover = @"demo_avatar_cook";
+//    [[YUDBTool sharedYUDBTool] insertCollection:m];
+//    
+//    m = [YUCollectionModel collectionModelWithName:@"jazz" pwd:@"1234"];
+//    m.cover = @"demo_avatar_woz";
+//    [[YUDBTool sharedYUDBTool] insertCollection:m];
 
     //    [LTHPasscodeViewController sharedUser].delegate = self;
     [LTHPasscodeViewController useKeychain:YES];

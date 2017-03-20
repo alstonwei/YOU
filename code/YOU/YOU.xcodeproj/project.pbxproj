@@ -112,6 +112,12 @@
 		24AACE661E713D7400FB0751 /* YUHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AACE651E713D7400FB0751 /* YUHomeVC.m */; };
 		24AACE701E71461E00FB0751 /* YUMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AACE6F1E71461E00FB0751 /* YUMessageVC.m */; };
 		24AACE731E71467600FB0751 /* DemoModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AACE721E71467600FB0751 /* DemoModelData.m */; };
+		24CC77AA1E7F6D5D00E86B61 /* YUHomeCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CC77A91E7F6D5D00E86B61 /* YUHomeCollectionViewLayout.m */; };
+		24CC77AD1E7F70C700E86B61 /* YUHomeFolderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CC77AC1E7F70C700E86B61 /* YUHomeFolderCell.m */; };
+		24CC77B11E7F764100E86B61 /* YUCollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CC77B01E7F764100E86B61 /* YUCollectionModel.m */; };
+		24CC77B51E7F789300E86B61 /* YUDataFakeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CC77B41E7F789300E86B61 /* YUDataFakeFactory.m */; };
+		24CC77B81E7F859600E86B61 /* YUDBTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CC77B71E7F859600E86B61 /* YUDBTool.m */; };
+		24CC77C01E7FD0A400E86B61 /* YUAddEditCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CC77BF1E7FD0A400E86B61 /* YUAddEditCollectionVC.m */; };
 		6F6195B3BF186504DA10A749 /* libPods-YOU.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21044C18AB23A917B2330C14 /* libPods-YOU.a */; };
 		F97E7DFE1C0EC28100F1F17D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97E7DFD1C0EC28100F1F17D /* CoreLocation.framework */; };
 		F97E7E001C0EC29500F1F17D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97E7DFF1C0EC29500F1F17D /* Foundation.framework */; };
@@ -370,6 +376,19 @@
 		24AACE6F1E71461E00FB0751 /* YUMessageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUMessageVC.m; sourceTree = "<group>"; };
 		24AACE711E71467600FB0751 /* DemoModelData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoModelData.h; sourceTree = "<group>"; };
 		24AACE721E71467600FB0751 /* DemoModelData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoModelData.m; sourceTree = "<group>"; };
+		24CC77A81E7F6D5D00E86B61 /* YUHomeCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUHomeCollectionViewLayout.h; sourceTree = "<group>"; };
+		24CC77A91E7F6D5D00E86B61 /* YUHomeCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUHomeCollectionViewLayout.m; sourceTree = "<group>"; };
+		24CC77AB1E7F70C700E86B61 /* YUHomeFolderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUHomeFolderCell.h; sourceTree = "<group>"; };
+		24CC77AC1E7F70C700E86B61 /* YUHomeFolderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUHomeFolderCell.m; sourceTree = "<group>"; };
+		24CC77AF1E7F764100E86B61 /* YUCollectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUCollectionModel.h; sourceTree = "<group>"; };
+		24CC77B01E7F764100E86B61 /* YUCollectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUCollectionModel.m; sourceTree = "<group>"; };
+		24CC77B31E7F789300E86B61 /* YUDataFakeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUDataFakeFactory.h; sourceTree = "<group>"; };
+		24CC77B41E7F789300E86B61 /* YUDataFakeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUDataFakeFactory.m; sourceTree = "<group>"; };
+		24CC77B61E7F859600E86B61 /* YUDBTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUDBTool.h; sourceTree = "<group>"; };
+		24CC77B71E7F859600E86B61 /* YUDBTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUDBTool.m; sourceTree = "<group>"; };
+		24CC77B91E7F87D000E86B61 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+		24CC77BE1E7FD0A400E86B61 /* YUAddEditCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUAddEditCollectionVC.h; sourceTree = "<group>"; };
+		24CC77BF1E7FD0A400E86B61 /* YUAddEditCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUAddEditCollectionVC.m; sourceTree = "<group>"; };
 		57D2F93E03D7E2C57419F54B /* Pods-YOU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YOU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YOU/Pods-YOU.debug.xcconfig"; sourceTree = "<group>"; };
 		EF4F5CE06B45D24A900B5344 /* Pods-YOU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YOU.release.xcconfig"; path = "Pods/Target Support Files/Pods-YOU/Pods-YOU.release.xcconfig"; sourceTree = "<group>"; };
 		F97E7DFD1C0EC28100F1F17D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -738,6 +757,7 @@
 		24AACE5F1E713D2E00FB0751 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				24CC77BA1E7FD07500E86B61 /* AddEditCollection */,
 				24AACE671E71401000FB0751 /* FolderDetail */,
 				24AACE601E713D2E00FB0751 /* HOME */,
 			);
@@ -747,6 +767,7 @@
 		24AACE601E713D2E00FB0751 /* HOME */ = {
 			isa = PBXGroup;
 			children = (
+				24CC77A71E7F6D2B00E86B61 /* Other */,
 				24AACE611E713D2E00FB0751 /* Cell */,
 				24AACE621E713D2E00FB0751 /* Controller */,
 				24AACE631E713D2E00FB0751 /* View */,
@@ -757,6 +778,8 @@
 		24AACE611E713D2E00FB0751 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				24CC77AB1E7F70C700E86B61 /* YUHomeFolderCell.h */,
+				24CC77AC1E7F70C700E86B61 /* YUHomeFolderCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -823,6 +846,69 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		24CC77A71E7F6D2B00E86B61 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				24CC77A81E7F6D5D00E86B61 /* YUHomeCollectionViewLayout.h */,
+				24CC77A91E7F6D5D00E86B61 /* YUHomeCollectionViewLayout.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		24CC77AE1E7F761D00E86B61 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				24CC77AF1E7F764100E86B61 /* YUCollectionModel.h */,
+				24CC77B01E7F764100E86B61 /* YUCollectionModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		24CC77B21E7F787300E86B61 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				24CC77B91E7F87D000E86B61 /* SynthesizeSingleton.h */,
+				24CC77B31E7F789300E86B61 /* YUDataFakeFactory.h */,
+				24CC77B41E7F789300E86B61 /* YUDataFakeFactory.m */,
+				24CC77B61E7F859600E86B61 /* YUDBTool.h */,
+				24CC77B71E7F859600E86B61 /* YUDBTool.m */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		24CC77BA1E7FD07500E86B61 /* AddEditCollection */ = {
+			isa = PBXGroup;
+			children = (
+				24CC77BB1E7FD07500E86B61 /* Cell */,
+				24CC77BC1E7FD07500E86B61 /* Controller */,
+				24CC77BD1E7FD07500E86B61 /* Model */,
+			);
+			path = AddEditCollection;
+			sourceTree = "<group>";
+		};
+		24CC77BB1E7FD07500E86B61 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		24CC77BC1E7FD07500E86B61 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				24CC77BE1E7FD0A400E86B61 /* YUAddEditCollectionVC.h */,
+				24CC77BF1E7FD0A400E86B61 /* YUAddEditCollectionVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		24CC77BD1E7FD07500E86B61 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		5D001D7EFCD30B6E8BDB1FFF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -875,6 +961,8 @@
 		F9CF0B621BFAF69B00B11663 /* YOU */ = {
 			isa = PBXGroup;
 			children = (
+				24CC77B21E7F787300E86B61 /* Factory */,
+				24CC77AE1E7F761D00E86B61 /* Model */,
 				24AACE5F1E713D2E00FB0751 /* UI */,
 				F9CF0B671BFAF69B00B11663 /* AppDelegate.h */,
 				F9CF0B681BFAF69B00B11663 /* AppDelegate.m */,
@@ -1132,9 +1220,11 @@
 				24803D491E71500F00FFB0A2 /* JSQMessagesViewController.m in Sources */,
 				24AACE701E71461E00FB0751 /* YUMessageVC.m in Sources */,
 				24803E061E7157F200FFB0A2 /* CTAssetThumbnailStacks.m in Sources */,
+				24CC77AA1E7F6D5D00E86B61 /* YUHomeCollectionViewLayout.m in Sources */,
 				F9CF0B661BFAF69B00B11663 /* main.m in Sources */,
 				24803D471E71500F00FFB0A2 /* UIImage+JSQMessages.m in Sources */,
 				24803E071E7157F200FFB0A2 /* CTAssetThumbnailView.m in Sources */,
+				24CC77B51E7F789300E86B61 /* YUDataFakeFactory.m in Sources */,
 				24803DFC1E7157F200FFB0A2 /* CTAssetsGridViewLayout.m in Sources */,
 				24803DED1E7157F200FFB0A2 /* UICollectionView+CTAssetsPickerController.m in Sources */,
 				2426590C1E7131CD0007BEAF /* TPKeyboardAvoidingTableView.m in Sources */,
@@ -1154,11 +1244,13 @@
 				F9CF0B6C1BFAF69B00B11663 /* YOU.xcdatamodeld in Sources */,
 				24803D6A1E71500F00FFB0A2 /* JSQMessagesMediaPlaceholderView.m in Sources */,
 				24803D531E71500F00FFB0A2 /* JSQMessagesCollectionViewFlowLayout.m in Sources */,
+				24CC77AD1E7F70C700E86B61 /* YUHomeFolderCell.m in Sources */,
 				24803D551E71500F00FFB0A2 /* JSQMessagesCollectionViewLayoutAttributes.m in Sources */,
 				242658FC1E712F5F0007BEAF /* LTHKeychainUtils.m in Sources */,
 				24803DEC1E7157F200FFB0A2 /* PHImageManager+CTAssetsPickerController.m in Sources */,
 				24803D571E71500F00FFB0A2 /* JSQLocationMediaItem.m in Sources */,
 				24803D5B1E71500F00FFB0A2 /* JSQMessagesBubbleImage.m in Sources */,
+				24CC77B11E7F764100E86B61 /* YUCollectionModel.m in Sources */,
 				2426590A1E7131CD0007BEAF /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				24AACE661E713D7400FB0751 /* YUHomeVC.m in Sources */,
 				24803DF61E7157F200FFB0A2 /* CTAssetSelectionLabel.m in Sources */,
@@ -1187,9 +1279,11 @@
 				24803D581E71500F00FFB0A2 /* JSQMediaItem.m in Sources */,
 				24803DF41E7157F200FFB0A2 /* CTAssetScrollView.m in Sources */,
 				24803DEA1E7157F200FFB0A2 /* PHAsset+CTAssetsPickerController.m in Sources */,
+				24CC77B81E7F859600E86B61 /* YUDBTool.m in Sources */,
 				24803D4B1E71500F00FFB0A2 /* JSQMessagesAvatarImageFactory.m in Sources */,
 				24803E021E7157F200FFB0A2 /* CTAssetsPickerController.m in Sources */,
 				24803D501E71500F00FFB0A2 /* JSQMessagesVideoThumbnailFactory.m in Sources */,
+				24CC77C01E7FD0A400E86B61 /* YUAddEditCollectionVC.m in Sources */,
 				24803CDA1E714A1F00FFB0A2 /* NSUserDefaults+DemoSettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

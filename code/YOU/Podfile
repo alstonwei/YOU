@@ -25,5 +25,7 @@ target "YOU" do
 
 	pod 'FMDBMigrationManager'
     pod 'PureLayout'
+    pod 'MJExtension'
+    pod 'XLForm', '~> 3.0'
 
 end
