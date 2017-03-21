@@ -42,4 +42,7 @@ IB_DESIGNABLE
 @property (weak, nonatomic) IBOutlet id<WCLPassWordViewDelegate> delegate;
 @property (strong, nonatomic, readonly) NSMutableString *textStore;//保存密码的字符串
 
+-(void)showErrorType;
+-(void)showSuccessType;
+
 @end

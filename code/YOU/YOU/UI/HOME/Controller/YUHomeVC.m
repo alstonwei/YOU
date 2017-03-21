@@ -98,14 +98,17 @@
             else
             {
                 if ([passWord.textStore isEqualToString:model.pwd]) {
-                      [weakPopup dismiss:NO];
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                       [weakSelf goCollectionDetail:model];
-                    });
                     
+                    [passWord showSuccessType];
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [weakPopup dismiss:NO];
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                            [weakSelf goCollectionDetail:model];
+                        });
+                    });
                 }
                 else{
-                    //passWord.textStore = @"";
+                    [passWord showErrorType];
                 }
             }
         };

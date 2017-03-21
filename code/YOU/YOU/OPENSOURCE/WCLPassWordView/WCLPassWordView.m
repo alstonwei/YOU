@@ -9,7 +9,10 @@
 #import "WCLPassWordView.h"
 
 @interface WCLPassWordView ()
-
+{
+    __block BOOL _isShowErrorType;
+    __block BOOL _isShowSuccessType;
+}
 @property (strong, nonatomic) NSMutableString *textStore;//保存密码的字符串
 
 @end
@@ -83,6 +86,43 @@ static NSString  * const MONEYNUMBERS = @"0123456789";
     return self.textStore.length > 0;
 }
 
+-(void)showErrorType{
+    if (_isShowErrorType) {
+        return;
+    }
+    _isShowErrorType = YES;
+    UIColor* oripointColor = self.pointColor;
+    UIColor* orirectColor = self.rectColor;
+    self.pointColor = [UIColor redColor];
+    self.rectColor = [UIColor redColor];
+     [self setNeedsDisplay];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.rectColor = orirectColor;
+        self.pointColor = oripointColor;
+        self.textStore = [NSMutableString string];
+        [self setNeedsDisplay];
+        _isShowErrorType = NO;
+    });
+}
+
+-(void)showSuccessType{
+    if (_isShowSuccessType) {
+        return;
+    }
+    _isShowSuccessType = YES;
+    UIColor* oripointColor = self.pointColor;
+    UIColor* orirectColor = self.rectColor;
+    self.pointColor = [UIColor greenColor];
+    self.rectColor = [UIColor greenColor];
+    [self setNeedsDisplay];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.rectColor = orirectColor;
+        self.pointColor = oripointColor;
+        self.textStore = [NSMutableString string];
+        [self setNeedsDisplay];
+        _isShowSuccessType = NO;
+    });
+}
 /**
  *  插入文本
  */
