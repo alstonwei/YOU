@@ -4,7 +4,32 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AFViewShaker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>BKPasscodeView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DACircularProgress.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>DZNEmptyDataSet.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>DZNPhotoPickerController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -82,6 +107,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>052D8481310506DC9F3560E5D61E5DF0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>175B076ED45EB1A3E40F58BA14036467</key>
 		<dict>
 			<key>primary</key>
@@ -97,12 +127,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2FE68FA8AF0C52B4FCE01DD9715FAAD0</key>
+		<key>527CB3CD37E17C22017BA8DD2651858B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>527CB3CD37E17C22017BA8DD2651858B</key>
+		<key>5437890023F30CA85DFCA260CA914D48</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5EF5D749884B0D0270D7076191ACC570</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5F5E42437E70E2F0D2211C923EC910F7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,17 +162,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>91402C3110CD470F18F6D141455058E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9E033EDB5EC0819481B0546434FA577B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A1FD781C2FA4937CEC77C8F8E3C25845</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A316B54C67E947D23CECD230FA5BFAEF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A49EC0C0FACDC8F3CFC8BE6F5C51987B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AEF529E859A016CF60FC7D1942043CD1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,17 +187,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C2F4706CDEEB20FFA8DDE66290D91154</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>C791F0A928C1A8FE97074DFC9ACF4E75</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D31F2E1140FD881D5FEB76F35D954576</key>
+		<key>D51B48C7254022C749E8FC374DE31FD7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E4B81DB1E354E14FC6C4709F22AA1FD7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F240E8041B6249D75DC071D7B8D5C8E7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

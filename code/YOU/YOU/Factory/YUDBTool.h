@@ -14,6 +14,7 @@
 DEFINE_SINGLETON_FOR_HEADER(YUDBTool);
 -(void)createTable;
 
--(void)insertCollection:(YUCollectionModel*)collection;
+-(BOOL)updateCollection:(YUCollectionModel*)collection;
+-(BOOL)insertCollection:(YUCollectionModel*)collection;
 -(NSMutableArray*)queryCollections;
 @end

@@ -77,11 +77,15 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "DZNPhotoPickerController/Source/Resources/en.lproj/DZNPhotoPickerController.strings"
+  install_resource "DZNPhotoPickerController/Source/Resources/en.lproj"
   install_resource "$PODS_CONFIGURATION_BUILD_DIR/MWPhotoBrowser/MWPhotoBrowser.bundle"
   install_resource "SAMKeychain/Support/SAMKeychain.bundle"
   install_resource "XLForm/XLForm/XLForm.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "DZNPhotoPickerController/Source/Resources/en.lproj/DZNPhotoPickerController.strings"
+  install_resource "DZNPhotoPickerController/Source/Resources/en.lproj"
   install_resource "$PODS_CONFIGURATION_BUILD_DIR/MWPhotoBrowser/MWPhotoBrowser.bundle"
   install_resource "SAMKeychain/Support/SAMKeychain.bundle"
   install_resource "XLForm/XLForm/XLForm.bundle"

@@ -20,6 +20,8 @@
 //显示集合是否需要密码。
 @property(nonatomic,assign)BOOL showCollectionUsePwd;
 
+@property(nonatomic,copy)NSString* des;
+
 
 +(YUCollectionModel*)collectionModelWithName:(NSString*)name
                                          pwd:(NSString*)pwd;

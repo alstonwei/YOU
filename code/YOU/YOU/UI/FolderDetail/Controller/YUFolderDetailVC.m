@@ -10,6 +10,9 @@
 #import "CTAssetsPickerController.h"
 #import "DemoMessagesViewController.h"
 #import "YUBasicViewController.h"
+#import "UINavigationItem+Spacing.h"
+#import "YUAddEditCollectionVC.h"
+#import "YUNavigationController.h"
 
 @interface YUFolderDetailVC ()
 {
@@ -28,18 +31,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = self.collectionModel.name;
+    [self.navigationItem setRightBarButtonItemsWithImageName:@"setting-white32" target:self selector:@selector(editCollection:)];
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
 }
-*/
 
+- (void)editCollection:(id)sender{
+    YUAddEditCollectionVC* add = [[YUAddEditCollectionVC alloc] init];
+    add.editCollection = self.collectionModel;
+    YUNavigationController* nav = [[YUNavigationController alloc] initWithRootViewController:add];
+    add.resultBlock = ^(BOOL result,YUCollectionModel * collection){
+        
+        [self relaodData];
+        [nav dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+        
+    };
+    [self.navigationController presentViewController:nav animated:YES completion:^{
+    }];
+
+}
+
+-(void)relaodData{
+    
+}
 
 - (IBAction)btnLookMessageClicked:(id)sender{
     DemoMessagesViewController *vc = [DemoMessagesViewController messagesViewController];

@@ -18,6 +18,15 @@
     }
     return _cover;
 }
+
+-(NSString *)date
+{
+    if (!_date) {
+        return [[NSDate new] description];
+    }
+    return _date;
+}
+
 +(YUCollectionModel*)collectionModelWithName:(NSString*)name
                                          pwd:(NSString*)pwd
 {

@@ -134,6 +134,7 @@
                     <navigationItem key="navigationItem" id="cul-gi-ZaW"/>
                     <connections>
                         <outlet property="btnAdd" destination="DpC-SV-X79" id="WSH-3l-1Ku"/>
+                        <outlet property="myCollectionView" destination="VYT-da-UuI" id="vFn-Tr-ac3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -196,7 +197,7 @@
         <!--Navigation Controller-->
         <scene sceneID="OrA-2E-8uY">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s5Y-k6-804" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s5Y-k6-804" customClass="YUNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="PVs-68-r0R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

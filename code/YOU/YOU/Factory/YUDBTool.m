@@ -42,8 +42,21 @@ DEFINE_SINGLETON_FOR_CLASS(YUDBTool);
     return _dbQueue;
 }
 
+-(BOOL)updateCollection:(YUCollectionModel*)collection
+{
+    //NSDictionary* dic = [collection key];
+    NSString* sql = [NSString stringWithFormat: @"update %@ (name,pwd,cover,date,modifyDate,enterDetailUsePwd,showCollectionUsePwd) values (?,?,?,?,?,?,?) where collectionId = ?",@"collection"];
+    __block BOOL result;
+    [self.dbQueue inDatabase:^(FMDatabase *db) {
+        result = [db executeUpdate:sql,collection.name,collection.pwd,collection.cover,collection.date,collection.date,@(collection.enterDetailUsePwd),@(collection.showCollectionUsePwd),collection.collectionId];
+    }];
+    if (!result) {
+        NSLog(@"ERROR, failed to update into table: %@", collection_table);
+    }
+    return result;
+}
 
--(void)insertCollection:(YUCollectionModel*)collection
+-(BOOL)insertCollection:(YUCollectionModel*)collection
 {
     //NSDictionary* dic = [collection key];
     NSString* sql = [NSString stringWithFormat: @"insert INTO %@ (name,pwd,cover,date,modifyDate,enterDetailUsePwd,showCollectionUsePwd) values (?,?,?,?,?,?,?)",@"collection"];
@@ -54,6 +67,7 @@ DEFINE_SINGLETON_FOR_CLASS(YUDBTool);
     if (!result) {
         NSLog(@"ERROR, failed to insert/replace into table: %@", collection_table);
     }
+    return result;
 }
 
 -(NSMutableArray*)queryCollections

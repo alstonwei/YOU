@@ -27,5 +27,7 @@ target "YOU" do
     pod 'PureLayout'
     pod 'MJExtension'
     pod 'XLForm', '~> 3.0'
+    pod 'DZNPhotoPickerController'
+    pod 'BKPasscodeView', '~> 0.1.2'
 
 end

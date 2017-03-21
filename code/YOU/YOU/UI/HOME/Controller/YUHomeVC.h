@@ -10,4 +10,6 @@
 
 @interface YUHomeVC : UIViewController
 
+@property (weak, nonatomic) IBOutlet UICollectionView *myCollectionView;
+
 @end

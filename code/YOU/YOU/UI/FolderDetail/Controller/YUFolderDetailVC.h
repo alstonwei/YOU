@@ -10,7 +10,6 @@
 #import "YUCollectionModel.h"
 
 @interface YUFolderDetailVC : UIViewController
-
-
 @property(nonatomic,strong)YUCollectionModel* collectionModel;
+
 @end
