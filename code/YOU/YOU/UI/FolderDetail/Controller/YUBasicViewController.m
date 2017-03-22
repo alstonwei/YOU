@@ -63,7 +63,6 @@
     
     
     // init properties
-    self.assets = [[NSMutableArray alloc] init];
 
     self.dateFormatter = [[NSDateFormatter alloc] init];
     self.dateFormatter.dateStyle = NSDateFormatterMediumStyle;
@@ -213,6 +212,14 @@ static PHImageManager *saveManager = nil;
         
         
     });
+}
+
+- (NSArray *)assets
+{
+    if (!_assets) {
+        _assets = [[NSMutableArray alloc] init];
+    }
+    return _assets;
 }
 
 @end

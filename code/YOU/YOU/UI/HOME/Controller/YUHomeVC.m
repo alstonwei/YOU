@@ -13,20 +13,16 @@
 #import "YUDBTool.h"
 #import "YUAddEditCollectionVC.h"
 #import "YUNavigationController.h"
-#import "BKPasscodeViewController.h"
 #import "YUPasscodeView.h"
 #import "KLCPopup.h"
 #import "UIView+YULoad.h"
 #import "WCLPassWordView.h"
 
-@interface YUHomeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,BKPasscodeViewControllerDelegate>
-
+@interface YUHomeVC ()<UICollectionViewDelegate,UICollectionViewDataSource>
 {
-    UINavigationController *_pwdNavController;
     KLCPopup* _popup;
 }
-@property(nonatomic,strong)NSMutableArray* dataSource;
-@property (weak, nonatomic) IBOutlet UIButton *btnAdd;
+
 
 - (IBAction)btnAddClicked:(id)sender;
 @end
@@ -35,16 +31,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"YOU";
+    
+    if (self.subCollection) {
+        [self.btnAdd setHidden:YES];
+        [self.btnFetch setHidden:YES];
+        self.title = @"结果";
+    }
+    else{
+        self.title = @"YOU";
+    }
     
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    if (self.subCollection) {
+        [self.btnAdd setHidden:YES];
+        [self.btnFetch setHidden:YES];
+    }
+    else{
+        [self reloadCollectionByWhere:@""];
+    }
+}
+
+-(void)reloadCollectionByWhere:(NSString*)where
+{
     [self.dataSource removeAllObjects];
-    NSMutableArray* arr = [[YUDBTool sharedYUDBTool] queryCollections];
+    NSMutableArray* arr = [[YUDBTool sharedYUDBTool] queryCollectionsByWhere:where];
     [self.dataSource addObjectsFromArray:arr];
+    [self.dataSource addObjectsFromArray:self.fetchDataArray];
     [self.myCollectionView reloadData];
 }
 
@@ -65,16 +81,68 @@
 }
 
 
+
+- (IBAction)btnFetchClicked:(id)sender {
+    __weak typeof (self) weakSelf = self;
+    YUPasscodeView* passcode = [YUPasscodeView YU_LoadFromNib];
+    _popup = [KLCPopup popupWithContentView:passcode];
+    _popup.shouldDismissOnBackgroundTouch = NO;
+    __weak typeof (_popup) weakPopup = _popup;
+    _popup.touchBackgroundCallBack = ^(){
+        [passcode endEditing:YES];
+    };
+    passcode.selectBlock = ^(){
+        [weakPopup dismiss:YES];
+    };
+    passcode.resultBlock = ^(WCLPassWordView *passWord,YUPasscodeViewResultType type){
+        if (type == YUPasscodeViewResultTypeClose) {
+            [weakPopup dismiss:YES];
+        }
+        else
+        {
+            NSString* where = [NSString stringWithFormat:@"pwd = '%@'",passWord.textStore];
+            NSMutableArray* arr = [[YUDBTool sharedYUDBTool] queryCollectionsByWhere:where];
+            if (arr && arr.count>0) {
+                [passWord showSuccessType];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [weakPopup dismiss:NO];
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [weakSelf goSubCollectionVC:arr];
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                            [weakSelf.fetchDataArray addObjectsFromArray:arr];
+                        });
+                        
+                    });
+                });
+            }
+            else{
+                [passWord showErrorType];
+            }
+        }
+    };
+    [_popup showWithLayout:KLCPopupLayoutCenter];
+}
+
+
+
 #pragma mark UICollectionViewDataSource <NSObject>
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.dataSource.count;
 }
+
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     YUHomeFolderCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"YUHomeFolderCell" forIndexPath:indexPath];
     YUCollectionModel* model = self.dataSource[indexPath.item];
     cell.collectionModel = model;
-    
+    __weak typeof (self) weakSelf = self;
+    cell.actionBlock = ^(YUHomeFolderCell* cell,id sender){
+        [weakSelf.fetchDataArray removeObject:model];
+        [weakSelf.dataSource removeObject:model];
+        NSIndexPath* temp = [weakSelf.myCollectionView indexPathForCell:cell];
+        [weakSelf.myCollectionView  deleteItemsAtIndexPaths:@[temp]];
+        //[weakSelf.myCollectionView reloadData];
+    };
     return cell;
 }
 
@@ -82,12 +150,15 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     YUCollectionModel* model = self.dataSource[indexPath.item];
-    if (model.enterDetailUsePwd == 1) {
+    if (!self.subCollection && model.enterDetailUsePwd == 1) {
         __weak typeof (self) weakSelf = self;
         YUPasscodeView* passcode = [YUPasscodeView YU_LoadFromNib];
         _popup = [KLCPopup popupWithContentView:passcode];
         _popup.shouldDismissOnBackgroundTouch = NO;
          __weak typeof (_popup) weakPopup = _popup;
+        _popup.touchBackgroundCallBack = ^(){
+            [passcode endEditing:YES];
+        };
         passcode.selectBlock = ^(){
             [weakPopup dismiss:YES];
         };
@@ -113,23 +184,6 @@
             }
         };
         [_popup showWithLayout:KLCPopupLayoutCenter];
-        
-//        BKPasscodeViewController *viewController = [[BKPasscodeViewController alloc] initWithNibName:nil bundle:nil];
-//        viewController.delegate = self;
-//        viewController.type = BKPasscodeViewControllerNewPasscodeType;
-//        // viewController.type = BKPasscodeViewControllerChangePasscodeType;    // for change
-//        // viewController.type = BKPasscodeViewControllerCheckPasscodeType;   // for authentication
-//        
-//        viewController.passcodeStyle = BKPasscodeInputViewNumericPasscodeStyle;
-//        // viewController.passcodeStyle = BKPasscodeInputViewNormalPasscodeStyle;    // for ASCII style passcode.
-//        
-//        // To supports Touch ID feature, set BKTouchIDManager instance to view controller.
-//        // It only supports iOS 8 or greater.
-//        viewController.touchIDManager = [[BKTouchIDManager alloc] initWithKeychainServiceName:@"kkk"];
-//        viewController.touchIDManager.promptText = @"Scan fingerprint to authenticate";   // You can set prompt text.
-//        
-//        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
-//        [self presentViewController:navController animated:YES completion:nil];
         return;
     }
     [self goCollectionDetail:model];
@@ -137,17 +191,18 @@
 
 -(void)goCollectionDetail:(YUCollectionModel*)model{
     YUFolderDetailVC* detail = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"YUFolderDetailVC"];
+    detail = [[YUFolderDetailVC alloc] init];
     detail.collectionModel = model;
     [self.navigationController pushViewController:detail animated:YES];
 }
 
-#pragma mark BKPasscodeViewControllerDelegate
-- (void)passcodeViewController:(BKPasscodeViewController *)aViewController didFinishWithPasscode:(NSString *)aPasscode
-{
-    [_pwdNavController dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+-(void)goSubCollectionVC:(NSMutableArray*)arr{
+    YUHomeVC* detail = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"YUHomeVC"];
+    detail.dataSource = arr;
+    detail.subCollection = YES;
+    [self.navigationController pushViewController:detail animated:YES];
 }
+
 
 -(NSMutableArray *)dataSource
 {
@@ -155,6 +210,14 @@
         _dataSource = [NSMutableArray array];
     }
     return _dataSource;
+}
+
+-(NSMutableArray *)fetchDataArray
+{
+    if (!_fetchDataArray) {
+        _fetchDataArray = [NSMutableArray array];
+    }
+    return _fetchDataArray;
 }
 
 

@@ -17,7 +17,9 @@
 }
 
 - (IBAction)btnEyeClicked:(id)sender {
-    
+    if (self.actionBlock) {
+        self.actionBlock(self,sender);
+    }
 }
 
 - (void)setCollectionModel:(YUCollectionModel *)collectionModel{

@@ -137,7 +137,9 @@ const KLCPopupLayout KLCPopupLayoutCenter = { KLCPopupHorizontalLayoutCenter, KL
   
   UIView* hitView = [super hitTest:point withEvent:event];
   if (hitView == self) {
-    
+    if (self.touchBackgroundCallBack) {
+        self.touchBackgroundCallBack();
+    }
     // Try to dismiss if backgroundTouch flag set.
     if (_shouldDismissOnBackgroundTouch) {
       [self dismiss:YES];

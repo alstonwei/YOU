@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "YUCollectionModel.h"
 
-@interface YUFolderDetailVC : UIViewController
+@interface YUFolderDetailVC : UITableViewController
 @property(nonatomic,strong)YUCollectionModel* collectionModel;
 
 @end

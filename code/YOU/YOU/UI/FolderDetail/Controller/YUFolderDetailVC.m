@@ -13,10 +13,14 @@
 #import "UINavigationItem+Spacing.h"
 #import "YUAddEditCollectionVC.h"
 #import "YUNavigationController.h"
+#import "YUDetailHeaderView.h"
+#import "UIView+YULoad.h"
+
 
 @interface YUFolderDetailVC ()
 {
     YUBasicViewController* baseVC;
+    YUDetailHeaderView* _headerView;
 }
 @property (copy, nonatomic)NSString* key;
 @property (weak, nonatomic) IBOutlet UIButton *btnAdd;
@@ -30,6 +34,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _headerView = [YUDetailHeaderView YU_LoadFromNib];
+    self.tableView.tableHeaderView = _headerView;
+    
     self.title = self.collectionModel.name;
     [self.navigationItem setRightBarButtonItemsWithImageName:@"setting-white32" target:self selector:@selector(editCollection:)];
     

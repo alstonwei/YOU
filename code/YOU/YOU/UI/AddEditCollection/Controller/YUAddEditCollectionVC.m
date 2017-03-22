@@ -141,13 +141,14 @@
 }
 
 -(void)dismiss:(id)sender{
-    
+    [self.view endEditing:YES];
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
         
     }];
 }
 
 -(void)save:(id)sender{
+    [self.view endEditing:YES];
     NSDictionary* dic = self.form.formValues;
     if (self.editCollection) {
         YUCollectionModel* collection = [YUCollectionModel mj_objectWithKeyValues:dic];
@@ -170,6 +171,7 @@
 
 
 -(void)btnSelectClicked:(UIButton*)btn{
+    [self.view endEditing:YES];
     DZNPhotoPickerController *picker = [[DZNPhotoPickerController alloc] init];
     picker.supportedServices = DZNPhotoPickerControllerServiceInstagram;
     picker.allowsEditing = YES;

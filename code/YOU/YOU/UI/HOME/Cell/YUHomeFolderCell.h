@@ -20,5 +20,5 @@
 
 
 @property(nonatomic,strong)YUCollectionModel* collectionModel;
-
+@property(nonatomic,copy)void(^actionBlock)(YUHomeFolderCell* cell,id sender);
 @end

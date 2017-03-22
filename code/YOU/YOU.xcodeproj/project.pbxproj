@@ -130,6 +130,8 @@
 		24CC77E31E811E2200E86B61 /* WCLPassWordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CC77E21E811E2200E86B61 /* WCLPassWordView.m */; };
 		24CC77E61E81215300E86B61 /* YUPasscodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CC77E51E81215300E86B61 /* YUPasscodeView.m */; };
 		24CC77EE1E81248C00E86B61 /* KLCPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CC77ED1E81248C00E86B61 /* KLCPopup.m */; };
+		24CC77F01E82674B00E86B61 /* YUDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24CC77EF1E82674B00E86B61 /* YUDetailHeaderView.xib */; };
+		24CC77F31E82700900E86B61 /* YUDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CC77F21E82700900E86B61 /* YUDetailHeaderView.m */; };
 		6F6195B3BF186504DA10A749 /* libPods-YOU.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21044C18AB23A917B2330C14 /* libPods-YOU.a */; };
 		F97E7DFE1C0EC28100F1F17D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97E7DFD1C0EC28100F1F17D /* CoreLocation.framework */; };
 		F97E7E001C0EC29500F1F17D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97E7DFF1C0EC29500F1F17D /* Foundation.framework */; };
@@ -422,6 +424,9 @@
 		24CC77E51E81215300E86B61 /* YUPasscodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUPasscodeView.m; sourceTree = "<group>"; };
 		24CC77EC1E81248C00E86B61 /* KLCPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLCPopup.h; sourceTree = "<group>"; };
 		24CC77ED1E81248C00E86B61 /* KLCPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLCPopup.m; sourceTree = "<group>"; };
+		24CC77EF1E82674B00E86B61 /* YUDetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YUDetailHeaderView.xib; sourceTree = "<group>"; };
+		24CC77F11E82700900E86B61 /* YUDetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUDetailHeaderView.h; sourceTree = "<group>"; };
+		24CC77F21E82700900E86B61 /* YUDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUDetailHeaderView.m; sourceTree = "<group>"; };
 		57D2F93E03D7E2C57419F54B /* Pods-YOU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YOU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YOU/Pods-YOU.debug.xcconfig"; sourceTree = "<group>"; };
 		EF4F5CE06B45D24A900B5344 /* Pods-YOU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YOU.release.xcconfig"; path = "Pods/Target Support Files/Pods-YOU/Pods-YOU.release.xcconfig"; sourceTree = "<group>"; };
 		F97E7DFD1C0EC28100F1F17D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -881,6 +886,9 @@
 		24AACE6C1E71401000FB0751 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				24CC77F11E82700900E86B61 /* YUDetailHeaderView.h */,
+				24CC77F21E82700900E86B61 /* YUDetailHeaderView.m */,
+				24CC77EF1E82674B00E86B61 /* YUDetailHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1234,6 +1242,7 @@
 				F9CF0B771BFAF69B00B11663 /* LaunchScreen.xib in Resources */,
 				24CC77C71E80B03000E86B61 /* YUSelectPhotoHeaderView.xib in Resources */,
 				24CC77D11E80B49600E86B61 /* YUShowPhotoHeaderView.xib in Resources */,
+				24CC77F01E82674B00E86B61 /* YUDetailHeaderView.xib in Resources */,
 				24CC77DF1E81180000E86B61 /* YUPasscodeView.xib in Resources */,
 				242659001E712F6C0007BEAF /* LTHPasscodeViewController.bundle in Resources */,
 				24803D6E1E71500F00FFB0A2 /* JSQMessagesTypingIndicatorFooterView.xib in Resources */,
@@ -1372,6 +1381,7 @@
 				F9CF0B6C1BFAF69B00B11663 /* YOU.xcdatamodeld in Sources */,
 				24803D6A1E71500F00FFB0A2 /* JSQMessagesMediaPlaceholderView.m in Sources */,
 				24803D531E71500F00FFB0A2 /* JSQMessagesCollectionViewFlowLayout.m in Sources */,
+				24CC77F31E82700900E86B61 /* YUDetailHeaderView.m in Sources */,
 				24CC77AD1E7F70C700E86B61 /* YUHomeFolderCell.m in Sources */,
 				24803D551E71500F00FFB0A2 /* JSQMessagesCollectionViewLayoutAttributes.m in Sources */,
 				242658FC1E712F5F0007BEAF /* LTHKeychainUtils.m in Sources */,

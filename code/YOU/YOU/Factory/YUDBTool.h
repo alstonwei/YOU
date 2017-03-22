@@ -17,4 +17,21 @@ DEFINE_SINGLETON_FOR_HEADER(YUDBTool);
 -(BOOL)updateCollection:(YUCollectionModel*)collection;
 -(BOOL)insertCollection:(YUCollectionModel*)collection;
 -(NSMutableArray*)queryCollections;
+
+/**
+ 根据输入密码查询
+ 
+ @param pwd
+ @return
+ */
+-(NSMutableArray*)queryCollectionsByPwd:(NSString*)pwd;
+
+/**
+ 指定where 条件查询
+ 
+ @param where 条件
+ @return
+ */
+-(NSMutableArray*)queryCollectionsByWhere:(NSString*)where;
+
 @end
