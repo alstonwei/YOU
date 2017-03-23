@@ -68,7 +68,8 @@
     YUAddEditCollectionVC* add = [[YUAddEditCollectionVC alloc] init];
     YUNavigationController* nav = [[YUNavigationController alloc] initWithRootViewController:add];
     add.resultBlock = ^(BOOL result,YUCollectionModel * collection){
-        YUFolderDetailVC* detail = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"YUFolderDetailVC"];
+        YUFolderDetailVC* detail = [[YUFolderDetailVC alloc] init];
+        //YUFolderDetailVC* detail = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"YUFolderDetailVC"];
         detail.collectionModel = collection;
         [self.navigationController pushViewController:detail animated:YES];
         [nav dismissViewControllerAnimated:NO completion:^{

@@ -10,7 +10,9 @@
 
 @interface YUDetailHeaderView : UIView
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet UIView *leftView;
+@property (weak, nonatomic) IBOutlet UIView *rightView;
 @property (weak, nonatomic) IBOutlet UIButton *btnAdd;
 @property (weak, nonatomic) IBOutlet UIImageView *imgAchor;
-
+@property(nonatomic,weak)UIScrollView* scrollView;
 @end
