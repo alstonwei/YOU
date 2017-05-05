@@ -16,7 +16,11 @@
 #import "YUDetailHeaderView.h"
 #import "UIView+YULoad.h"
 #import "YUDetailDesCell.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
+#import "UINavigationBar+Awesome.h"
+#import "YUNavgationBar.h"
 
+#define NAVBAR_CHANGE_POINT 50
 
 @interface YUFolderDetailVC ()
 {
@@ -26,7 +30,9 @@
 }
 @property (copy, nonatomic)NSString* key;
 @property (weak, nonatomic) IBOutlet UIButton *btnAdd;
-
+@property (nonatomic,strong) YUNavgationBar* topBar;
+@property (weak, nonatomic) IBOutlet UIButton *btnBack;
+@property (weak, nonatomic) IBOutlet UIButton *btnEdit;
 - (IBAction)btnAddClicked:(id)sender;
 
 - (IBAction)btnLookMessageClicked:(id)sender;
@@ -42,12 +48,63 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+   
     self.title = self.collectionModel.name;
-    [self.navigationItem setRightBarButtonItemsWithImageName:@"setting-white32" target:self selector:@selector(editCollection:)];
+    //[self.navigationItem setRightBarButtonItemsWithImageName:@"setting-white32" target:self selector:@selector(editCollection:)];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self setupHeadView];
     [self regisreCell];
+    self.fd_prefersNavigationBarHidden = YES;
+    [self setupCustomNavBar];
+}
+
+-(void)setupCustomNavBar
+{
+    
+    self.topBar = [[YUNavgationBar alloc] initWithFrame:CGRectMake(0, 0,CGRectGetWidth(self.view.bounds), 64)];
+    [self.navigationController.view addSubview:self.topBar];
+    self.topBar.barTintColor = [UIColor clearColor];
+    [self.topBar setBackgroundColor:[UIColor clearColor]];
+    [self.topBar lt_setBackgroundColor:[UIColor clearColor]];
+    [self.topBar.btnLeft addTarget:self action:@selector(btnNavClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.topBar.btnLeft addTarget:self action:@selector(btnNavClicked:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)btnNavClicked:(id)btn{
+    if (btn == self.topBar.btnLeft) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else if (btn == self.topBar.btnRight){
+        [self editCollection:btn];
+    }
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    self.tableView.delegate = self;
+    [self scrollViewDidScroll:self.tableView];
+    [self.topBar setShadowImage:[UIImage new]];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.tableView.delegate = nil;
+    [self.topBar lt_reset];
+}
+
+
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    UIColor * color = [UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:1];
+    CGFloat offsetY = scrollView.contentOffset.y;
+    if (offsetY > NAVBAR_CHANGE_POINT) {
+        CGFloat alpha = MIN(1, 1 - ((NAVBAR_CHANGE_POINT + 64 - offsetY) / 64));
+        [self.topBar lt_setBackgroundColor:[color colorWithAlphaComponent:alpha]];
+    } else {
+        [self.topBar lt_setBackgroundColor:[color colorWithAlphaComponent:0]];
+    }
 }
 
 -(void)setupHeadView
@@ -104,11 +161,7 @@
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-}
+
 
 - (void)editCollection:(id)sender{
     YUAddEditCollectionVC* add = [[YUAddEditCollectionVC alloc] init];

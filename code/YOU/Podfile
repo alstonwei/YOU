@@ -29,5 +29,6 @@ target "YOU" do
     pod 'XLForm', '~> 3.0'
     pod 'DZNPhotoPickerController'
     pod 'BKPasscodeView', '~> 0.1.2'
+    pod 'FDFullscreenPopGesture', '1.1'
 
 end

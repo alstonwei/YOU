@@ -30,6 +30,7 @@ PODS:
   - DZNPhotoPickerController/Services (2.0):
     - AFNetworking (~> 3.0)
   - FCFileManager (1.0.18)
+  - FDFullscreenPopGesture (1.1)
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
@@ -56,6 +57,7 @@ DEPENDENCIES:
   - BKPasscodeView (~> 0.1.2)
   - DZNPhotoPickerController
   - FCFileManager
+  - FDFullscreenPopGesture (= 1.1)
   - FMDB
   - FMDBMigrationManager
   - JKCategories
@@ -75,6 +77,7 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   DZNPhotoPickerController: 1a9b83a53a2f35094e35c163417ab0aeb8653fd1
   FCFileManager: 3d13576da1f709d37460bd7669cdf07b9d6d8bc3
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   FMDBMigrationManager: d52007f328ea0665e8985ca8a33500707aef084f
   JKCategories: 863f4c7ed2d521ee6bf72ceea97948da23bb5af4
@@ -87,6 +90,6 @@ SPEC CHECKSUMS:
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   XLForm: d5c391dfc62865927b5bcab0a5a0dbfb3e02b0ec
 
-PODFILE CHECKSUM: 95113cd56330402ea45365cdb861539d0c59d058
+PODFILE CHECKSUM: b0ace32904366fe0dde0ad2336249b9d378685ff
 
-COCOAPODS: 1.2.0.rc.1
+COCOAPODS: 1.2.0

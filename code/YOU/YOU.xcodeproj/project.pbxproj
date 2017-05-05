@@ -135,6 +135,8 @@
 		24CC77F71E83AC4E00E86B61 /* YUDetailDesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CC77F51E83AC4E00E86B61 /* YUDetailDesCell.m */; };
 		24CC77F81E83AC4E00E86B61 /* YUDetailDesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24CC77F61E83AC4E00E86B61 /* YUDetailDesCell.xib */; };
 		24CC77FB1E83AD6500E86B61 /* YUTimeLineDashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CC77FA1E83AD6500E86B61 /* YUTimeLineDashView.m */; };
+		69D3F8A31EBC6D4700525979 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D3F8A21EBC6D4700525979 /* UINavigationBar+Awesome.m */; };
+		69D3F8A61EBC781700525979 /* YUNavgationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D3F8A51EBC781700525979 /* YUNavgationBar.m */; };
 		6F6195B3BF186504DA10A749 /* libPods-YOU.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21044C18AB23A917B2330C14 /* libPods-YOU.a */; };
 		F97E7DFE1C0EC28100F1F17D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97E7DFD1C0EC28100F1F17D /* CoreLocation.framework */; };
 		F97E7E001C0EC29500F1F17D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97E7DFF1C0EC29500F1F17D /* Foundation.framework */; };
@@ -436,6 +438,10 @@
 		24CC77F91E83AD6500E86B61 /* YUTimeLineDashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUTimeLineDashView.h; sourceTree = "<group>"; };
 		24CC77FA1E83AD6500E86B61 /* YUTimeLineDashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUTimeLineDashView.m; sourceTree = "<group>"; };
 		57D2F93E03D7E2C57419F54B /* Pods-YOU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YOU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YOU/Pods-YOU.debug.xcconfig"; sourceTree = "<group>"; };
+		69D3F8A11EBC6D4700525979 /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
+		69D3F8A21EBC6D4700525979 /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
+		69D3F8A41EBC781700525979 /* YUNavgationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUNavgationBar.h; sourceTree = "<group>"; };
+		69D3F8A51EBC781700525979 /* YUNavgationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUNavgationBar.m; sourceTree = "<group>"; };
 		EF4F5CE06B45D24A900B5344 /* Pods-YOU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YOU.release.xcconfig"; path = "Pods/Target Support Files/Pods-YOU/Pods-YOU.release.xcconfig"; sourceTree = "<group>"; };
 		F97E7DFD1C0EC28100F1F17D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F97E7DFF1C0EC29500F1F17D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -490,6 +496,7 @@
 		242658F61E712F550007BEAF /* OPENSOURCE */ = {
 			isa = PBXGroup;
 			children = (
+				69D3F8A01EBC6D4700525979 /* UINavigationBar+Awesome */,
 				24CC77EB1E81248C00E86B61 /* KLCPopup */,
 				24CC77E01E811E2200E86B61 /* WCLPassWordView */,
 				24803D831E7157F200FFB0A2 /* CTAssetsPickerController */,
@@ -497,6 +504,8 @@
 				24AACE521E71363100FB0751 /* FCModel */,
 				242659011E7131CD0007BEAF /* TPKeyboardAvoiding */,
 				242658F71E712F5F0007BEAF /* LTHPasscodeViewController */,
+				69D3F8A41EBC781700525979 /* YUNavgationBar.h */,
+				69D3F8A51EBC781700525979 /* YUNavgationBar.m */,
 			);
 			name = OPENSOURCE;
 			path = YOU/OPENSOURCE;
@@ -1056,6 +1065,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		69D3F8A01EBC6D4700525979 /* UINavigationBar+Awesome */ = {
+			isa = PBXGroup;
+			children = (
+				69D3F8A11EBC6D4700525979 /* UINavigationBar+Awesome.h */,
+				69D3F8A21EBC6D4700525979 /* UINavigationBar+Awesome.m */,
+			);
+			path = "UINavigationBar+Awesome";
+			sourceTree = "<group>";
+		};
 		9D3B82EAD5B739CD01283F16 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1368,6 +1386,7 @@
 				24803E061E7157F200FFB0A2 /* CTAssetThumbnailStacks.m in Sources */,
 				24CC77AA1E7F6D5D00E86B61 /* YUHomeCollectionViewLayout.m in Sources */,
 				F9CF0B661BFAF69B00B11663 /* main.m in Sources */,
+				69D3F8A61EBC781700525979 /* YUNavgationBar.m in Sources */,
 				24803D471E71500F00FFB0A2 /* UIImage+JSQMessages.m in Sources */,
 				24803E071E7157F200FFB0A2 /* CTAssetThumbnailView.m in Sources */,
 				24CC77B51E7F789300E86B61 /* YUDataFakeFactory.m in Sources */,
@@ -1419,6 +1438,7 @@
 				24CC77FB1E83AD6500E86B61 /* YUTimeLineDashView.m in Sources */,
 				24803D5F1E71500F00FFB0A2 /* JSQMessagesCollectionView.m in Sources */,
 				24803D5D1E71500F00FFB0A2 /* JSQVideoMediaItem.m in Sources */,
+				69D3F8A31EBC6D4700525979 /* UINavigationBar+Awesome.m in Sources */,
 				24803D7A1E7150A400FFB0A2 /* DemoMessagesViewController.m in Sources */,
 				2426590D1E7131CD0007BEAF /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				24803D541E71500F00FFB0A2 /* JSQMessagesCollectionViewFlowLayoutInvalidationContext.m in Sources */,
