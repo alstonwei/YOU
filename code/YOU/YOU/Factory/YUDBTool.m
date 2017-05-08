@@ -22,7 +22,7 @@ DEFINE_SINGLETON_FOR_CLASS(YUDBTool);
 -(void)createTable
 {
      __block BOOL result = true;
-    NSString* sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (collectionId INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL,pwd TEXT NOT NULL,cover TEXT NOT NULL,date TEXT NOT NULL,modifyDate TEXT NOT NULL,enterDetailUsePwd Boolean NOT NULL,showCollectionUsePwd Boolean NOT NULL,des TEXT NOT NULL)",@"collection"];
+    NSString* sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (collectionId INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL,pwd TEXT,cover TEXT,date TEXT NOT NULL,modifyDate TEXT NOT NULL,enterDetailUsePwd Boolean,showCollectionUsePwd Boolean,des TEXT)",collection_table];
     [self.dbQueue inDatabase:^(FMDatabase *db) {
         result = [db executeUpdate:sql];
     }];
@@ -30,13 +30,33 @@ DEFINE_SINGLETON_FOR_CLASS(YUDBTool);
     if (!result) {
         NSLog(@"ERROR, failed to insert/replace into table: %@", collection_table);
     }
+    else{
+        NSLog(@"create table: %@ success", collection_table);
+    }
+    [self alertTable];
+}
+
+-(void)alertTable
+{
+     __block BOOL result = true;
+    NSString* sql = [NSString stringWithFormat:@"alter table %@ Add column des TEXT ",collection_table];
+    [self.dbQueue inDatabase:^(FMDatabase *db) {
+        result = [db executeUpdate:sql];
+    }];
+    
+    if (!result) {
+        NSLog(@"ALTER into table: %@", collection_table);
+    }
+    else{
+        NSLog(@"ALTER table: %@ success", collection_table);
+    }
 }
 
 - (FMDatabaseQueue *)dbQueue
 {
     if(!_dbQueue)
     {
-        NSString* dbPath =[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"you.sqllite"];
+        NSString* dbPath =[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"you.sqlite"];
         _dbQueue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
     }
     return _dbQueue;
@@ -45,7 +65,7 @@ DEFINE_SINGLETON_FOR_CLASS(YUDBTool);
 -(BOOL)updateCollection:(YUCollectionModel*)collection
 {
     //NSDictionary* dic = [collection key];
-    NSString* sql = [NSString stringWithFormat: @"update %@ (name,pwd,cover,date,modifyDate,enterDetailUsePwd,showCollectionUsePwd,des) values (?,?,?,?,?,?,?,?) where collectionId = ?",@"collection"];
+    NSString* sql = [NSString stringWithFormat: @"update %@ (name,pwd,cover,date,modifyDate,enterDetailUsePwd,showCollectionUsePwd,des) values (?,?,?,?,?,?,?,?) where collectionId = ?",collection_table];
     __block BOOL result;
     [self.dbQueue inDatabase:^(FMDatabase *db) {
         result = [db executeUpdate:sql,collection.name,collection.pwd,collection.cover,collection.date,collection.date,@(collection.enterDetailUsePwd),@(collection.showCollectionUsePwd),collection.des,collection.collectionId];
@@ -59,7 +79,7 @@ DEFINE_SINGLETON_FOR_CLASS(YUDBTool);
 -(BOOL)insertCollection:(YUCollectionModel*)collection
 {
     //NSDictionary* dic = [collection key];
-    NSString* sql = [NSString stringWithFormat: @"insert INTO %@ (name,pwd,cover,date,modifyDate,enterDetailUsePwd,showCollectionUsePwd,des) values (?,?,?,?,?,?,?,?)",@"collection"];
+    NSString* sql = [NSString stringWithFormat: @"insert INTO %@ (name,pwd,cover,date,modifyDate,enterDetailUsePwd,showCollectionUsePwd,des) values (?,?,?,?,?,?,?,?)",collection_table];
     __block BOOL result;
     [self.dbQueue inDatabase:^(FMDatabase *db) {
         result = [db executeUpdate:sql,collection.name,collection.pwd,collection.cover,collection.date,collection.date,@(collection.enterDetailUsePwd),@(collection.showCollectionUsePwd),collection.des];

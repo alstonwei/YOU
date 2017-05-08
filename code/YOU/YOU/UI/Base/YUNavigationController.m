@@ -19,7 +19,7 @@
     navBar.tintColor = [UIColor whiteColor];
     navBar.barTintColor = topicColor;
     UIImage *bgImage = [self imageWithColor:topicColor size:CGSizeMake(1, 64)];
-    [navBar setBackgroundImage:bgImage forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    //[navBar setBackgroundImage:bgImage forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     [navBar setBackgroundImage:bgImage forBarMetrics:UIBarMetricsDefault];
 }
 

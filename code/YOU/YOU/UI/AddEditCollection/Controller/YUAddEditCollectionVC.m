@@ -162,8 +162,13 @@
     {
         YUCollectionModel* collection = [YUCollectionModel mj_objectWithKeyValues:dic];
         BOOL saveResult = [[YUDBTool sharedYUDBTool] insertCollection:collection];
-        if (self.resultBlock) {
-            self.resultBlock(saveResult,collection);
+        if (saveResult) {
+            if (self.resultBlock) {
+                self.resultBlock(saveResult,collection);
+            }
+        }
+        else{
+            
         }
     }
     

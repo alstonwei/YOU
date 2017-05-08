@@ -50,7 +50,6 @@
     [super viewDidLoad];
    
     self.title = self.collectionModel.name;
-    //[self.navigationItem setRightBarButtonItemsWithImageName:@"setting-white32" target:self selector:@selector(editCollection:)];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self setupHeadView];
     [self regisreCell];
@@ -60,14 +59,43 @@
 
 -(void)setupCustomNavBar
 {
-    
     self.topBar = [[YUNavgationBar alloc] initWithFrame:CGRectMake(0, 0,CGRectGetWidth(self.view.bounds), 64)];
-    [self.navigationController.view addSubview:self.topBar];
-    self.topBar.barTintColor = [UIColor clearColor];
-    [self.topBar setBackgroundColor:[UIColor clearColor]];
+    
+    self.topBar.translucent = YES;
     [self.topBar lt_setBackgroundColor:[UIColor clearColor]];
     [self.topBar.btnLeft addTarget:self action:@selector(btnNavClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [self.topBar.btnLeft addTarget:self action:@selector(btnNavClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.topBar.btnRight addTarget:self action:@selector(btnNavClicked:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    self.tableView.delegate = self;
+    [self.navigationController.view addSubview:self.topBar];
+    [self.topBar lt_reset];
+    [self scrollViewDidScroll:self.tableView];
+    [self.topBar setShadowImage:[UIImage new]];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [self.topBar removeFromSuperview];
+}
+
+
+-(UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size
+{
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 -(void)btnNavClicked:(id)btn{
@@ -78,22 +106,6 @@
         [self editCollection:btn];
     }
 }
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:YES];
-    self.tableView.delegate = self;
-    [self scrollViewDidScroll:self.tableView];
-    [self.topBar setShadowImage:[UIImage new]];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    self.tableView.delegate = nil;
-    [self.topBar lt_reset];
-}
-
-
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
